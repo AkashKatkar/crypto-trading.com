@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Market Options Game - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            color: #f7931a;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: white;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: #f7931a;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .feature-card p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #f7931a;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+        }
+
+        .btn:hover {
+            background: #ff9500;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(247, 147, 26, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .screenshot {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid #dee2e6;
+        }
+
+        .screenshot h4 {
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .screenshot p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section {
+                padding: 2rem 1rem;
+            }
+
+            .btn {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1><i class="fab fa-bitcoin"></i> Crypto Market Options Game</h1>
+            <p>Learn cryptocurrency options trading through an engaging simulation game with real-time market data and educational resources.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Real-Time Market Data</h3>
+                <p>Experience live cryptocurrency price movements with realistic market simulation.</p>
+                <ul class="feature-list">
+                    <li>Live price updates every 30 seconds</li>
+                    <li>Interactive price charts</li>
+                    <li>Market volume and cap data</li>
+                    <li>Price change animations</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-dice"></i>
+                </div>
+                <h3>Daily Options Trading</h3>
+                <p>Trade call and put options with realistic pricing and expiration times.</p>
+                <ul class="feature-list">
+                    <li>5 Call options (bullish)</li>
+                    <li>5 Put options (bearish)</li>
+                    <li>Multiple expiration times</li>
+                    <li>Dynamic premium pricing</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Competitive Leaderboard</h3>
+                <p>Compete with other traders and track your performance.</p>
+                <ul class="feature-list">
+                    <li>Daily, weekly, monthly rankings</li>
+                    <li>Win rate tracking</li>
+                    <li>Profit/loss statistics</li>
+                    <li>Player achievements</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>Educational Resources</h3>
+                <p>Learn options trading concepts through interactive tutorials.</p>
+                <ul class="feature-list">
+                    <li>Comprehensive glossary</li>
+                    <li>Step-by-step guides</li>
+                    <li>Interactive tooltips</li>
+                    <li>Risk-free learning</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Responsive Design</h3>
+                <p>Play seamlessly across all devices with mobile-optimized interface.</p>
+                <ul class="feature-list">
+                    <li>Mobile-first design</li>
+                    <li>Touch-friendly controls</li>
+                    <li>Adaptive layouts</li>
+                    <li>Cross-browser compatibility</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-history"></i>
+                </div>
+                <h3>Trade History</h3>
+                <p>Track all your trades and analyze your performance over time.</p>
+                <ul class="feature-list">
+                    <li>Complete trade history</li>
+                    <li>Performance analytics</li>
+                    <li>Win/loss tracking</li>
+                    <li>Data persistence</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="screenshots">
+            <div class="screenshot">
+                <h4><i class="fas fa-tachometer-alt"></i> Dashboard</h4>
+                <p>Real-time market overview with live price data and performance metrics</p>
+            </div>
+            <div class="screenshot">
+                <h4><i class="fas fa-chart-area"></i> Trading Interface</h4>
+                <p>Intuitive options trading with clear strike prices and expiration times</p>
+            </div>
+            <div class="screenshot">
+                <h4><i class="fas fa-book"></i> Education Center</h4>
+                <p>Comprehensive learning resources and trading glossary</p>
+            </div>
+            <div class="screenshot">
+                <h4><i class="fas fa-medal"></i> Leaderboard</h4>
+                <p>Competitive rankings and player statistics</p>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Start Trading?</h2>
+            <p>Join thousands of users learning cryptocurrency options trading in a risk-free, educational environment. No real money required - just pure learning and fun!</p>
+            <a href="index.html" class="btn">Play Now <i class="fas fa-play"></i></a>
+            <a href="README.md" class="btn btn-secondary">Learn More <i class="fas fa-info-circle"></i></a>
+        </div>
+    </div>
+</body>
+</html> 
