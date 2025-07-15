@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading - Crypto Market Options Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-bitcoin"></i>
+                <h1>Crypto Options Game</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="trading.html" class="nav-link active">Trading</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Trading Section -->
+        <section id="trading" class="section active">
+            <div class="container">
+                <div class="trading-grid">
+                    <!-- Current Positions -->
+                    <div class="card positions-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-chart-line"></i> Current Positions</h2>
+                            <div class="portfolio-summary">
+                                <span class="total-pnl" id="totalPnl">$0.00</span>
+                                <span class="position-count" id="positionCount">0 Positions</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="positions-list" id="currentPositions">
+                                <!-- Current positions will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Daily Options -->
+                    <div class="card options-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-dice"></i> Daily Options</h2>
+                            <div class="timer">
+                                <i class="fas fa-clock"></i>
+                                <span id="countdown">24:00:00</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Options Chain Table -->
+                            <div class="options-list" id="optionsChain"></div>
+                        </div>
+                    </div>
+
+                    <!-- Trade History -->
+                    <div class="card history-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-history"></i> Trade History</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="history-list" id="tradeHistory">
+                                <!-- Trade history will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="tradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Trade</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="trade-details" id="tradeDetails">
+                    <!-- Trade details will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelTrade">Cancel</button>
+                <button class="btn btn-primary" id="confirmTrade">Confirm Trade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip Container -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 

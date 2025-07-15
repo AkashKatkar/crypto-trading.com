@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Crypto Market Options Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-bitcoin"></i>
+                <h1>Crypto Options Game</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="trading.html" class="nav-link">Trading</a></li>
+                    <li><a href="education.html" class="nav-link">Education</a></li>
+                    <li><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="section active">
+            <div class="container">
+                <div class="dashboard-grid">
+                    <!-- Market Overview -->
+                    <div class="card market-overview">
+                        <div class="card-header">
+                            <h2><i class="fas fa-chart-line"></i> Live Market Data</h2>
+                            <button class="btn btn-sm btn-outline" id="refreshData" title="Refresh market data">
+                                <i class="fas fa-sync-alt"></i> Refresh
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="price-display">
+                                <div class="current-price">
+                                    <span class="price-label">Current Price <i class="fas fa-sync-alt fa-spin real-time-indicator"></i></span>
+                                    <span class="price-value" id="currentPrice">$0.00</span>
+                                    <span class="price-change" id="priceChange">+0.00%</span>
+                                    <div class="connection-status" id="connectionStatus">
+                                        <span class="status-indicator"></span>
+                                        <span class="status-text">Connecting...</span>
+                                        <span class="update-frequency">Updates every 2 seconds</span>
+                                    </div>
+                                </div>
+                                <div class="market-stats">
+                                    <div class="stat">
+                                        <span class="stat-label">24h Volume</span>
+                                        <span class="stat-value" id="volume">$0.00</span>
+                                    </div>
+                                    <div class="stat">
+                                        <span class="stat-label">Market Cap</span>
+                                        <span class="stat-value" id="marketCap">$0.00</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Price Chart -->
+                    <div class="card chart-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-chart-area"></i> Price Chart</h2>
+                            <div class="chart-controls">
+                                <button class="btn btn-sm btn-outline" id="clearData" style="background-color: #dc3545; color: white;">Clear Data</button>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="priceChart" width="400" height="200"></canvas>
+                            </div>
+                            <div id="chartStatus" style="text-align: center; margin-top: 10px; font-size: 12px; color: #666;">
+                                Chart Status: Initializing...
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- User Stats -->
+                    <div class="card user-stats">
+                        <div class="card-header">
+                            <h2><i class="fas fa-user"></i> Your Performance</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <span class="stat-number" id="totalTrades">0</span>
+                                    <span class="stat-label">Total Trades</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="winRate">0%</span>
+                                    <span class="stat-label">Win Rate</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="profitLoss">$0.00</span>
+                                    <span class="stat-label">P&L</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-number" id="rank">-</span>
+                                    <span class="stat-label">Rank</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="tradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Trade</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="trade-details" id="tradeDetails">
+                    <!-- Trade details will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelTrade">Cancel</button>
+                <button class="btn btn-primary" id="confirmTrade">Confirm Trade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip Container -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education - Crypto Market Options Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <i class="fab fa-bitcoin"></i>
+                <h1>Crypto Options Game</h1>
+            </div>
+            <nav class="nav">
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                    <li><a href="trading.html" class="nav-link">Trading</a></li>
+                    <li><a href="education.html" class="nav-link active">Education</a></li>
+                    <li><a href="leaderboard.html" class="nav-link">Leaderboard</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Education Section -->
+        <section id="education" class="section active">
+            <div class="container">
+                <div class="education-grid">
+                    <div class="card education-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-graduation-cap"></i> Trading Education</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="education-content">
+                                <div class="lesson">
+                                    <h3>What are Options?</h3>
+                                    <p>Options are financial contracts that give you the right, but not the obligation, to buy or sell cryptocurrency at a specific price within a certain time period.</p>
+                                    <div class="lesson-tips">
+                                        <div class="tip">
+                                            <i class="fas fa-arrow-up text-success"></i>
+                                            <strong>Call Options:</strong> Bet on price going up
+                                        </div>
+                                        <div class="tip">
+                                            <i class="fas fa-arrow-down text-danger"></i>
+                                            <strong>Put Options:</strong> Bet on price going down
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="lesson">
+                                    <h3>How to Play</h3>
+                                    <ol>
+                                        <li>Analyze the current cryptocurrency market conditions</li>
+                                        <li>Choose from available call or put options</li>
+                                        <li>Place your trade with virtual currency</li>
+                                        <li>Wait for the expiration time to see results</li>
+                                        <li>Learn from your wins and losses!</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card glossary-card">
+                        <div class="card-header">
+                            <h2><i class="fas fa-book"></i> Trading Glossary</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="glossary-list">
+                                <div class="glossary-item">
+                                    <h4>Strike Price</h4>
+                                    <p>The price at which the option can be exercised</p>
+                                </div>
+                                <div class="glossary-item">
+                                    <h4>Expiration</h4>
+                                    <p>The time when the option contract expires</p>
+                                </div>
+                                <div class="glossary-item">
+                                    <h4>Premium</h4>
+                                    <p>The cost to buy the option contract</p>
+                                </div>
+                                <div class="glossary-item">
+                                    <h4>In the Money</h4>
+                                    <p>When the option has intrinsic value</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="tradeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Confirm Trade</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="trade-details" id="tradeDetails">
+                    <!-- Trade details will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" id="cancelTrade">Cancel</button>
+                <button class="btn btn-primary" id="confirmTrade">Confirm Trade</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tooltip Container -->
+    <div class="tooltip" id="tooltip"></div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html> 
