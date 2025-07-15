@@ -47,13 +47,16 @@ A modern, responsive web-based trading simulation game that allows users to lear
 
 ### Installation
 1. Download or clone the repository
-2. Open `index.html` in your web browser
-3. Start trading immediately!
+2. Open `index.html` in your web browser (this is the dashboard and main entry point)
+3. Use the navigation menu to access Trading, Education, and Leaderboard pages
 
 ### File Structure
 ```
 crypto-trading.com/
-├── index.html          # Main HTML structure
+├── index.html          # Main dashboard and entry point
+├── trading.html        # Trading interface (options chain, positions, trade history)
+├── education.html      # Educational resources and glossary
+├── leaderboard.html    # Leaderboard and rankings
 ├── styles.css          # CSS styles and responsive design
 ├── script.js           # Game logic and functionality
 └── README.md           # This file
